@@ -16,7 +16,7 @@ const App = () => {
   const [isGameCleared, setIsGameCleared] = useState(false);
   const [circlePositions, setCirclePositions] = useState([]);
   const [circleOrder, setCircleOrder] = useState([]);
-  const [restartTrigger, setRestartTrigger] = useState(0);
+  const [restartTrigger, setRestartTrigger] = useState(0); 
 
   // Xử lý sự kiện khi người dùng thay đổi giá trị input
   const handleInputChange = (e) => {
@@ -58,10 +58,10 @@ const App = () => {
     setIsGameOver(false);
     setIsGameCleared(false);
     setTime(0);
-
+  
     generateCirclePositions(inputPoints);
     // Thay đổi restartTrigger để kích hoạt useEffect mỗi lần restart để quay về trạng thái ban đầu
-    setRestartTrigger(prev => prev + 1);
+    setRestartTrigger(prev => prev + 1); 
   };
 
   // Hàm tạo vị trí và thứ tự ngẫu nhiên cho các circle
@@ -74,7 +74,7 @@ const App = () => {
     const order = Array.from({ length: count }, (_, i) => i + 1);
     for (let i = order.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [order[i], order[j]] = [order[j], order[i]];
+      [order[i], order[j]] = [order[j], order[i]]; 
     }
 
     setCirclePositions(positions);
@@ -89,14 +89,14 @@ const App = () => {
   }, [isGameOver]);
 
   return (
-    <div className='app-container'>
+    <div className="app-container">
       <ToastContainer />
       {isGameOver && !isGameCleared ? (
-        <div className='game-over'>GAME OVER</div>
+        <div className="game-over">GAME OVER</div>
       ) : isGameCleared ? (
-        <div className='all-cleared'>ALL CLEARED</div>
+        <div className="all-cleared">ALL CLEARED</div>
       ) : (
-        <div className='let-play'>LET'S PLAY</div>
+        <div className="let-play">LET'S PLAY</div>
       )}
       <ScoreBoard points={inputPoints} handleInputChange={handleInputChange} />
       <Timer
@@ -106,11 +106,7 @@ const App = () => {
         isGameStarted={isGameStarted}
         isGameCleared={isGameCleared}
       />
-      <PlayButton
-        isGameStarted={isGameStarted}
-        onPlay={handlePlay}
-        onRestart={handleRestart}
-      />
+      <PlayButton isGameStarted={isGameStarted} onPlay={handlePlay} isGameOver={isGameOver} onRestart={handleRestart} />
       <GameBoard
         points={points}
         circlePositions={circlePositions}
