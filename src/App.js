@@ -28,7 +28,7 @@ const App = () => {
   const handleCircleClick = (success) => {
     if (success) {
       setIsGameCleared(true);
-      setIsGameStarted(false);
+      setIsGameStarted(true);
     } else {
       setIsGameOver(true);
       setIsGameStarted(false);
@@ -100,12 +100,7 @@ const App = () => {
       )}
       <ScoreBoard points={inputPoints} handleInputChange={handleInputChange} />
       <Timer time={time} setTime={setTime} isGameOver={isGameOver} isGameStarted={isGameStarted} />
-      <PlayButton
-        isGameStarted={isGameStarted}
-        isGameOver={isGameOver}
-        onPlay={handlePlay}
-        onRestart={handleRestart}
-      />
+      <PlayButton isGameStarted={isGameStarted} onPlay={handlePlay} onRestart={handleRestart} />
       <GameBoard
         points={points}
         circlePositions={circlePositions}
