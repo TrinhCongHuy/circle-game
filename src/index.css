@@ -1,13 +1,118 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Container chính của ứng dụng */
+.app-container {
+  width: 60%;
+  margin: 50px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #f9f9f9; 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px; 
+  color: #333; 
+}
+
+.score-board {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+  width: 200px;
+}
+
+.score-board input {
+  padding: 5px;
+}
+
+.timer {
+  display: flex;
+  gap: 28px; 
+}
+
+/* Nút button */
+.play-button {
+  width: 100px;
+  padding: 10px 20px;
+  border: none;
+  color: #000; 
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; 
+  border-radius: 4px; 
+  margin: 10px 0; 
+  border: 1px solid #e0dede;
+}
+
+.play-button:hover {
+  background-color: #babbbc; 
+  transform: scale(1.05);
+}
+
+.PlayButton {
+  width: auto; 
+  background-color: #28a745; 
+}
+
+/* Khung game-board */
+.game-board {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #fff; 
+}
+
+.game-board.hidden {
+  display: none;
+}
+
+/* Hình tròn */
+.circle {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  cursor: pointer;
+  transition: background-color 0.5s, transform 0.2s; 
+}
+
+.circle:hover {
+  background-color: rgb(224, 78, 86); 
+  transform: scale(1.1); 
+  color: #fff;
+}
+
+/* Thông báo */
+.all-cleared,
+.game-over,
+.let-play {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.all-cleared {
+  color: rgb(28, 161, 59);
+}
+
+.game-over {
+  color: rgb(203, 37, 37);
+}
+
+.let-play {
+  color: #000;
 }
